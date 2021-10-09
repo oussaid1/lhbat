@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lhbat/settings/theme.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -34,7 +33,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               const Text(current,
-                  style: const TextStyle(color: Colors.purple, fontSize: 22)),
+                  style: TextStyle(color: Colors.purple, fontSize: 22)),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(

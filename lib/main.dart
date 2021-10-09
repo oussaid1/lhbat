@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lhbat/screens/home/home.dart';
 import 'package:lhbat/screens/home/welcome.dart';
 
 void main() {

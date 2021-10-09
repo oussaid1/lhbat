@@ -45,15 +45,15 @@ class MThemeData {
   static ThemeData themeData(ColorScheme colorScheme, Color focusColor) {
     return ThemeData(
       colorScheme: colorScheme,
-      textTheme: _textTheme,
+      //textTheme: _textStyle,
       // Matches manifest.json colors and background color.
       primaryColor: colorScheme.background,
       appBarTheme: AppBarTheme(
-        textTheme: _textTheme.apply(bodyColor: colorScheme.onPrimary),
+        toolbarTextStyle: _textStyle,
         color: colorScheme.background,
         elevation: 8,
         iconTheme: IconThemeData(color: colorScheme.primary),
-        brightness: colorScheme.brightness,
+        // brightness: colorScheme.brightness,
       ),
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
       canvasColor: colorScheme.background,
@@ -71,7 +71,7 @@ class MThemeData {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: _textTheme.subtitle1!.apply(color: _darkFillColor),
+        contentTextStyle: _textStyle,
       ),
       //cardTheme: CardTheme(color: colorScheme.primary),
     );
@@ -115,32 +115,5 @@ class MThemeData {
   static const _semiBold = FontWeight.w600;
   static const _bold = FontWeight.bold;
 
-  static final TextTheme _textTheme = TextTheme(
-    headline1: GoogleFonts.robotoSlab(fontWeight: _bold, fontSize: 20.0),
-    headline2: GoogleFonts.robotoSlab(fontWeight: _semiBold, fontSize: 18.0),
-    headline3: GoogleFonts.robotoSlab(fontWeight: _regular, fontSize: 16.0),
-    headline4: GoogleFonts.robotoSlab(
-      fontWeight: _regular,
-      fontSize: 16.0,
-    ),
-    subtitle1: GoogleFonts.robotoSlab(
-      fontWeight: _regular,
-      fontSize: 14.0,
-    ),
-    subtitle2: GoogleFonts.robotoSlab(
-        fontWeight: _light, fontSize: 14.0, color: hintTextColor),
-
-    /***************************** */
-    caption: GoogleFonts.robotoSlab(fontWeight: _semiBold, fontSize: 16.0),
-    headline5: GoogleFonts.robotoSlab(fontWeight: _medium, fontSize: 16.0),
-    overline: GoogleFonts.robotoSlab(
-        fontWeight: _light, fontSize: 12.0, color: hintTextColor),
-    bodyText1: GoogleFonts.robotoSlab(fontWeight: _regular, fontSize: 14.0),
-    bodyText2: GoogleFonts.robotoMono(
-      fontWeight: _regular,
-      fontSize: 16.0,
-    ),
-    headline6: GoogleFonts.robotoSlab(fontWeight: _bold, fontSize: 16.0),
-    button: GoogleFonts.robotoSlab(fontWeight: _semiBold, fontSize: 14.0),
-  );
+  static const TextStyle _textStyle = TextStyle(color: Colors.black);
 }
