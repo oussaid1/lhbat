@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MThemeData {
   MThemeData._();
@@ -108,12 +107,6 @@ class MThemeData {
     onSurface: _darkFillColor,
     brightness: Brightness.dark,
   );
-
-  static const _light = FontWeight.w300;
-  static const _regular = FontWeight.w400;
-  static const _medium = FontWeight.w500;
-  static const _semiBold = FontWeight.w600;
-  static const _bold = FontWeight.bold;
 
   static const TextStyle _textStyle = TextStyle(color: Colors.black);
 }
