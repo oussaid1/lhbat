@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lhbat/screens/home/home/home.dart';
 import 'package:lhbat/screens/home/welcome.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -7,7 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'routing/routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

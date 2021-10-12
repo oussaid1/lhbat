@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lhbat/routing/routes.dart';
-import 'package:lhbat/screens/home/home/home.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -31,7 +30,7 @@ class Welcome extends StatelessWidget {
               Navigator.pushNamed(context, Routes.home);
             },
             icon: const Icon(
-              Icons.arrow_forward_ios_sharp,
+              Icons.arrow_back_ios_sharp,
               color: Colors.blue,
             ),
           ),

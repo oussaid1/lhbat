@@ -1,57 +1,39 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-
 class Meal {
   String? tittle;
+  DateTime? shift;
   List<Person>? persons = [];
   Meal({
     this.tittle,
+    this.shift,
     this.persons,
   });
-
-  Meal copyWith({
-    String? tittle,
-    List<Person>? persons,
-  }) {
-    return Meal(
-      tittle: tittle ?? this.tittle,
-      persons: persons ?? this.persons,
-    );
-  }
 
   Map<String, dynamic> toMap() {
     return {
       'tittle': tittle,
-      'persons': persons?.map((x) => x?.toMap())?.toList(),
+      'shift': shift,
+      'persons': persons,
     };
   }
 
   factory Meal.fromMap(Map<String, dynamic> map) {
     return Meal(
-      tittle: map['tittle'],
-      persons: List<Person>.from(map['persons']?.map((x) => Person.fromMap(x))),
+      tittle: map['Name'],
+      shift: DateTime.tryParse(map['workshift']),
+      persons: [],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Meal.fromJson(String source) => Meal.fromMap(json.decode(source));
+  factory Meal.fromJson(String source) =>
+      Meal.fromMap(json.decode(utf8.decode(source.codeUnits)));
 
   @override
-  String toString() => 'Meal(tittle: $tittle, persons: $persons)';
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Meal &&
-        other.tittle == tittle &&
-        listEquals(other.persons, persons);
-  }
-
-  @override
-  int get hashCode => tittle.hashCode ^ persons.hashCode;
+  String toString() =>
+      'Meal(tittle: $tittle, shift: $shift, persons: $persons)';
 }
 
 class Person {
