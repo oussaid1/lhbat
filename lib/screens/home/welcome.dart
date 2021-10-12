@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lhbat/routing/routes.dart';
 import 'package:lhbat/screens/home/home/home.dart';
 
 class Welcome extends StatelessWidget {
@@ -27,10 +28,7 @@ class Welcome extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Home()),
-              );
+              Navigator.pushNamed(context, Routes.home);
             },
             icon: const Icon(
               Icons.arrow_forward_ios_sharp,
