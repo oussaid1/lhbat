@@ -1,4 +1,3 @@
-import 'package:lhbat/services/scheduel_provider.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:lhbat/models/meal.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +6,13 @@ import 'variables_provider.dart';
 
 final shiftProvider = FutureProvider<Meal>((ref) async {
   final dateTime = ref.watch(pickedDateProvider);
-  return getMealShift(dateTime);
+  return await http
+      .get(Uri.parse('https://lpqgf7.deta.dev/shift/$dateTime'))
+      .then((value) {
+    // print("Response body: ${value.body}");
+    //print("Response status: ${value.statusCode}");
+    return Meal.fromJson(value.body);
+  });
 
   //return Meal(tittle: "sf", shift: DateTime.now());
 });

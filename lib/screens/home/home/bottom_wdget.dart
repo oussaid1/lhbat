@@ -8,10 +8,15 @@ class BottomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "تلمصور",
-            style: MTypography.headlineTextStyle,
+          Padding(
+            padding: const EdgeInsets.only(right: 18.0),
+            child: Text(
+              "تلمصور",
+              textAlign: TextAlign.start,
+              style: MTypography.headlineTextStyle,
+            ),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
