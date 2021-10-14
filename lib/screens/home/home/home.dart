@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:lhbat/components.dart';
-import 'package:lhbat/models/meal.dart';
 import 'package:lhbat/providers/shift_providers.dart';
 import 'package:lhbat/providers/variables_provider.dart';
 import 'package:lhbat/screens/home/home/bottom_wdget.dart';
@@ -17,7 +16,7 @@ class Home extends ConsumerWidget {
     final DateFormat formatter = DateFormat('H:m:s yyyy-MM-dd ');
 
     final current = formatter.format(watch(pickedDateProvider));
-    final AsyncValue<Meal> shift = watch(shiftProvider);
+    final shift = watch(shiftStateProvider).state;
     const String assetName = 'assets/images/topimage.jpg';
     // format the time as `hh:mm:ss`
 
@@ -35,7 +34,7 @@ class Home extends ConsumerWidget {
                   image: DecorationImage(
                     colorFilter: ColorFilter.linearToSrgbGamma(),
                     image: AssetImage(assetName),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
@@ -56,12 +55,9 @@ class Home extends ConsumerWidget {
                           color: Colors.blue,
                         ),
                       ),
-                      shift.when(
-                          data: (value) => Text(value.tittle.toString(),
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 22)),
-                          loading: () => const Text("------"),
-                          error: (e, r) => const Text("------")),
+                      Text(shift.tittle.toString(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 22)),
                       IconButton(
                         onPressed: () {
                           context.read(pickedDateProvider.notifier).increment();
@@ -83,7 +79,7 @@ class Home extends ConsumerWidget {
                 width: MediaQuery.of(context).size.width,
                 child: const CentreList()),
             BottomWidget(
-              telmsour: current,
+              telmsour: shift.tittle.toString(),
             ),
           ],
         ),

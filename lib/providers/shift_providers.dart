@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import 'variables_provider.dart';
 
-final shiftProvider = FutureProvider<Meal>((ref) async {
+final shiftFutureProvider = FutureProvider<Meal>((ref) async {
   final dateTime = ref.watch(pickedDateProvider);
   return await http
       .get(Uri.parse('https://lpqgf7.deta.dev/shift/$dateTime'))
@@ -15,4 +15,10 @@ final shiftProvider = FutureProvider<Meal>((ref) async {
   });
 
   //return Meal(tittle: "sf", shift: DateTime.now());
+});
+
+final shiftStateProvider = StateProvider<Meal>((ref) {
+  Meal meal = Meal(tittle: "...");
+  ref.watch(shiftFutureProvider).whenData((value) => meal = value);
+  return meal;
 });

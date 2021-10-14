@@ -13,9 +13,10 @@ class BottomWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 18.0),
             child: Text(
-              "تلمصور",
+              "تلمصور ",
               textAlign: TextAlign.start,
-              style: MTypography.headlineTextStyle,
+              style: MTypography.headlineTextStyle
+                  .copyWith(color: MTypography.primaryColor),
             ),
           ),
           SizedBox(
@@ -23,7 +24,11 @@ class BottomWidget extends StatelessWidget {
             height: 100,
             child: Card(
               color: MTypography.primaryColor,
-              child: Text(telmsour),
+              child: Center(
+                  child: Text(
+                telmsour,
+                style: MTypography.headlineTextStyle,
+              )),
             ),
           ),
         ],
