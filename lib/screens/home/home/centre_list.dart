@@ -1,5 +1,4 @@
 import 'package:lhbat/components.dart';
-import 'package:lhbat/settings/theme/typography.dart';
 
 class CentreList extends StatelessWidget {
   const CentreList({Key? key}) : super(key: key);

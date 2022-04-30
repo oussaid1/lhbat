@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MThemeData {
@@ -78,9 +75,9 @@ class MThemeData {
 
   static const ColorScheme lightColorScheme = ColorScheme(
     primary: Color(0xFFEAB93C),
-    primaryVariant: Color(0xFFE3711D),
+    primaryContainer: Color(0xFFE3711D),
     secondary: Color(0xFFE6EBEB),
-    secondaryVariant: Color(0xFFFBFAFC),
+    secondaryContainer: Color(0xFFFBFAFC),
     background: Color(0xFFE6EBEB),
     surface: Color(0xFFFAFBFB),
     onBackground: Colors.white,
@@ -94,9 +91,9 @@ class MThemeData {
 
   static const ColorScheme darkColorScheme = ColorScheme(
     primary: Color(0xFFEAB93C),
-    primaryVariant: Color(0xFFE3711D),
+    primaryContainer: Color(0xFFE3711D),
     secondary: Color(0xFF2D1839),
-    secondaryVariant: Color(0xFFF2E49B),
+    secondaryContainer: Color(0xFFF2E49B),
     background: Color(0xFF100E1F),
     surface: Color(0xFF161327),
     onBackground: Color(0xFFFFFFFF), // White with 0.05 opacity

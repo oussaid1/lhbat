@@ -1,5 +1,4 @@
 import 'package:lhbat/components.dart';
-import 'package:lhbat/settings/theme/typography.dart';
 
 class BottomWidget extends StatelessWidget {
   const BottomWidget({Key? key, required this.telmsour}) : super(key: key);

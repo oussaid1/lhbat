@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:lhbat/components.dart';
 import 'package:lhbat/providers/shift_providers.dart';
 import 'package:lhbat/providers/variables_provider.dart';
@@ -12,11 +10,11 @@ class Home extends ConsumerWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final DateFormat formatter = DateFormat('H:m:s yyyy-MM-dd ');
 
-    final current = formatter.format(watch(pickedDateProvider));
-    final shift = watch(shiftStateProvider).state;
+    final current = formatter.format(ref.watch(pickedDateProvider));
+    final shift = ref.watch(shiftStateProvider.state).state;
     const String assetName = 'assets/images/topimage.jpg';
     // format the time as `hh:mm:ss`
 
@@ -48,7 +46,7 @@ class Home extends ConsumerWidget {
                     children: [
                       IconButton(
                         onPressed: () {
-                          context.read(pickedDateProvider.notifier).decrement();
+                          ref.read(pickedDateProvider.notifier).decrement();
                         },
                         icon: const Icon(
                           Icons.arrow_back_ios_sharp,
@@ -60,7 +58,7 @@ class Home extends ConsumerWidget {
                               fontWeight: FontWeight.bold, fontSize: 22)),
                       IconButton(
                         onPressed: () {
-                          context.read(pickedDateProvider.notifier).increment();
+                          ref.read(pickedDateProvider.notifier).increment();
                         },
                         icon: const Icon(
                           Icons.arrow_forward_ios_sharp,
